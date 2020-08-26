@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+       QUIZZ
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-list>
+
+    <div *ngFor="let quizz of  Question">
+      <p>{{quizz.Question}}</p>
+   
+
+      <ion-item >
+      <div *ngFor="let option of  quizz.option">
+
+      
+        <input type="radio" id="female" name="gender" value={{option}} [(ngModel)]=" quizz.userAnswer">
+        <label for="female">{{option}}</label><br>
+      </div>
+    </ion-item>
+    </div>
+
+  </ion-list>
+
+<ion-button (click)="submit()">Submit</ion-button>
+
+
+<div *ngIf="Pass; else elseBlock">
+  <strong>{{"Yaay You have pASSED"}}</strong>
+
+</div>
+<ng-template #elseBlock>
+{{"sorry You have Failed"}}
+
+</ng-template>
+
+
+
+</ion-content>
